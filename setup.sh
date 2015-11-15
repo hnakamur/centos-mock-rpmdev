@@ -27,7 +27,7 @@ curl -sL -o $HOME/rpmbuild/SOURCES/nginx-1.9.6-1.el7.ngx.src/nginx_upstream_chec
 curl -sL -o $HOME/rpmbuild/SOURCES/nginx-1.9.6-1.el7.ngx.src/lua-nginx-module-master.tar.gz https://github.com/openresty/lua-nginx-module/archive/master.tar.gz
 
 sed -i.orig '
-/^Release: 1%{?dist}\.ngx/s/\.ngx$/.naruh/
+/^Release: 1%{?dist}\.ngx/s/\.ngx$/.hnakamur/
 /^Vendor: nginx inc\./s/$/, Hiroaki Nakamura/
 /^Source10:/a\
 Source11: ngx_http_consistent_hash-master.tar.gz\
@@ -49,14 +49,14 @@ patch -p0 < ./nginx_upstream_check_module-master/check_1.9.2+.patch
         --add-module=./lua-nginx-module-master \\
 ' $HOME/rpmbuild/SPECS/nginx.spec
 
-mv $HOME/rpmbuild/SOURCES/nginx-1.9.6-1.el7.ngx.src $HOME/rpmbuild/SOURCES/nginx-1.9.6-1.el7.centos.naruh.src
+mv $HOME/rpmbuild/SOURCES/nginx-1.9.6-1.el7.ngx.src $HOME/rpmbuild/SOURCES/nginx-1.9.6-1.el7.centos.hnakamur.src
 sudo yum-builddep -y $HOME/rpmbuild/SPECS/nginx.spec
 rpmbuild -bs $HOME/rpmbuild/SPECS/nginx.spec
-mock --rebuild $HOME/rpmbuild/SRPMS/nginx-1.9.6-1.el7.centos.naruh.src.rpm
+mock --rebuild $HOME/rpmbuild/SRPMS/nginx-1.9.6-1.el7.centos.hnakamur.src.rpm
 
 # $ ls -1 /var/lib/mock/epel-7-x86_64/result/*.rpm
-# /var/lib/mock/epel-7-x86_64/result/nginx-1.9.6-1.el7.centos.naruh.src.rpm
-# /var/lib/mock/epel-7-x86_64/result/nginx-1.9.6-1.el7.centos.naruh.x86_64.rpm
-# /var/lib/mock/epel-7-x86_64/result/nginx-debug-1.9.6-1.el7.centos.naruh.x86_64.rpm
-# /var/lib/mock/epel-7-x86_64/result/nginx-debuginfo-1.9.6-1.el7.centos.naruh.x86_64.rpm
+# /var/lib/mock/epel-7-x86_64/result/nginx-1.9.6-1.el7.centos.hnakamur.src.rpm
+# /var/lib/mock/epel-7-x86_64/result/nginx-1.9.6-1.el7.centos.hnakamur.x86_64.rpm
+# /var/lib/mock/epel-7-x86_64/result/nginx-debug-1.9.6-1.el7.centos.hnakamur.x86_64.rpm
+# /var/lib/mock/epel-7-x86_64/result/nginx-debuginfo-1.9.6-1.el7.centos.hnakamur.x86_64.rpm
 
