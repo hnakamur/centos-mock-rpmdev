@@ -1,5 +1,5 @@
-centos-mock-rpmdev
-==================
+centos-mock-vagrant
+===================
 
 An example of using [Mock - FedoraProject](https://fedoraproject.org/wiki/Mock) on CentOS 7 to build RPMs.
 In this example, I rebuild a rpm of [highway](https://github.com/tkengo/highway)
