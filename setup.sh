@@ -14,3 +14,4 @@ sudo yum -y install mock rpmdevtools rpmbuild yum-utils diff patch
 sudo mock --init -r epel-7-x86_64
 sudo usermod $USER -a -G mock
 rpmdev-setuptree
+echo '%_sourcedir %{_topdir}/SOURCES/%{name}' >> $HOME/.rpmmacros
