@@ -12,5 +12,5 @@ include_only=.jp
 sudo yum -y install epel-release
 sudo yum -y install mock rpmdevtools rpmbuild yum-utils diff patch
 sudo mock --init -r epel-7-x86_64
-sudo useradd mockbuild -G mock
-sudo -u mockbuild rpmdev-setuptree
+sudo usermod $USER -a -G mock
+rpmdev-setuptree
