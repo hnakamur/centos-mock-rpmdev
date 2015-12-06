@@ -10,7 +10,7 @@ include_only=.jp
 ' /etc/yum/pluginconf.d/fastestmirror.conf
 
 sudo yum -y install epel-release
-sudo yum -y install mock rpmdevtools rpmbuild yum-utils diff patch
+sudo yum -y install mock rpmdevtools rpmbuild yum-utils diff patch scl-utils scl-utils-build
 sudo mock --init -r epel-7-x86_64
 sudo usermod $USER -a -G mock
 rpmdev-setuptree
